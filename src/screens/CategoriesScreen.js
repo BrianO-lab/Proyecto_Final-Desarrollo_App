@@ -12,9 +12,10 @@ const CategoriesScreen = ({ navigation }) => {
       name: item.title,
     });
   };
-  const renderGridItem = ({ item }) => {
+  const renderGridItem = ({ item }) => (
     <GridItem item={item} onSelected={handleSelectedCategory} />
-  };
+    );
+
 
   return (
     <FlatList
