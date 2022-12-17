@@ -14,7 +14,7 @@ const CategoriesScreen = ({ navigation }) => {
   };
   const renderGridItem = ({ item }) => (
     <GridItem item={item} onSelected={handleSelectedCategory} />
-    );
+  );
 
 
   return (
@@ -22,7 +22,7 @@ const CategoriesScreen = ({ navigation }) => {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={renderGridItem}
-      
+
     />
 
   );

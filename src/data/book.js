@@ -1,4 +1,4 @@
-export const BREADS = [
+export const BOOKS = [
   {
     id: 1,
     title: "libro 1",
