@@ -9,7 +9,7 @@ const GridItem = ({ item, onSelected }) => {
         onPress={() => onSelected(item)}
       >
         <View>
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title}>{item.title}s</Text>
         </View>
       </TouchableOpacity>
     </View>

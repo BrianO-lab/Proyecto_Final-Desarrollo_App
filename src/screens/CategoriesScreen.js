@@ -22,6 +22,7 @@ const CategoriesScreen = ({ navigation }) => {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={renderGridItem}
+      numColumns={2}
 
     />
 

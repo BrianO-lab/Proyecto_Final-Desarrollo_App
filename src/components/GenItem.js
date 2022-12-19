@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: "Tillana",
   },
   details: {
     fontSize: 18,

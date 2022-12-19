@@ -9,31 +9,31 @@ const Stack = createNativeStackNavigator();
 
 export default ShopNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Categories"
-        screenOptions={{
-          headerStyle: COLORS.secondary,
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+
+    <Stack.Navigator
+      initialRouteName="Categories"
+      screenOptions={{
+        headerStyle: COLORS.secondary,
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: "Book's Shop",
         }}
-      >
-        <Stack.Screen
-          name="Categories"
-          component={CategoriesScreen}
-          options={{
-            title: "Book' Shop",
-          }}
-        />
-        <Stack.Screen name="Book" component={CategoryBookScreen}
-          options={({ route }) => ({
-            title: route.params.name
-          })}
-        />
-        <Stack.Screen name="Details" component={BookDetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      />
+      <Stack.Screen name="Book" component={CategoryBookScreen}
+        options={({ route }) => ({
+          title: route.params.name
+        })}
+      />
+      <Stack.Screen name="Details" component={BookDetailsScreen} />
+    </Stack.Navigator>
+
   );
 
 };
