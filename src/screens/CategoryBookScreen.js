@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import GenItem from "../components/GenItem"
 import { BOOKS } from "../data/book"
 
-const CategoryBookScreen = ({ navigation, route }) => {
+import { useSelector, useDispatch, connect } from "react-redux";
+import { filteredBook, selectBook } from '../store/actions/book.action';
 
-  const books = BOOKS.filter(book => book.category === route.params.categoryID)
+const CategoryBookScreen = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const categoryBooks = useSelector((state) => state.books.filteredBook);
+  const category = useSelector((state) => state.categories.selected);
+
+  useEffect(() => {
+    dispatch(filteredBook(category.id));
+  }, []);
+
+
+  // const books = BOOKS.filter(book => book.category === route.params.categoryID);
 
   const handleSelectedCategory = (item) => {
+    dispatch(selectBook(item.id));
     navigation.navigate("Details", {
-      productID: item.id,
       name: item.title,
     });
   };
@@ -20,7 +31,7 @@ const CategoryBookScreen = ({ navigation, route }) => {
 
   return (
     <FlatList
-      data={books}
+      data={categoryBooks}
       keyExtractor={(item) => item.id}
       renderItem={renderBookItem}
 
@@ -29,6 +40,6 @@ const CategoryBookScreen = ({ navigation, route }) => {
   );
 };
 
-export default CategoryBookScreen
+export default connect()(CategoryBookScreen);
 
 const styles = StyleSheet.create({})
