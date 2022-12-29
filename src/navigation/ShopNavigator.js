@@ -1,4 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryBookScreen from "../screens/CategoryBookScreen";
@@ -9,7 +8,6 @@ const Stack = createNativeStackNavigator();
 
 export default ShopNavigator = () => {
   return (
-
     <Stack.Navigator
       initialRouteName="Categories"
       screenOptions={{
@@ -26,14 +24,14 @@ export default ShopNavigator = () => {
           title: "Book's Shop",
         }}
       />
-      <Stack.Screen name="Book" component={CategoryBookScreen}
+      <Stack.Screen
+        name="Book"
+        component={CategoryBookScreen}
         options={({ route }) => ({
-          title: route.params.name
+          title: route.params.name,
         })}
       />
       <Stack.Screen name="Details" component={BookDetailsScreen} />
     </Stack.Navigator>
-
   );
-
 };

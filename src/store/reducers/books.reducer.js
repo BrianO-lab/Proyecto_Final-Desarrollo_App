@@ -1,7 +1,6 @@
 import { BOOKS } from "../../data/book";
 import { SELECTED_BOOK, FILTERED_BOOK } from "../actions/book.action";
 
-
 const initialState = {
   books: BOOKS,
   filteredBook: [],
@@ -12,11 +11,15 @@ const BookReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECTED_BOOK:
       return {
-        ...state, selected: state.books.find((book) => book.id === action.bookID),
+        ...state,
+        selected: state.books.find((book) => book.id === action.bookID),
       };
     case FILTERED_BOOK:
       return {
-        ...state, filteredBook: state.books.filter((book) => book.category === action.categoryID),
+        ...state,
+        filteredBook: state.books.filter(
+          (book) => book.category === action.categoryID
+        ),
       };
 
     default:
